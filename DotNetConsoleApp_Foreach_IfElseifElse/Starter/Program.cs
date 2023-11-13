@@ -39,35 +39,63 @@ int logan4 = 88;
 int logan5 = 96;
 */
 
-int sophiaSum = 0;
+// Student names
+string[] studentNames = new string[] { "Sophia", "Andrew", "Emma", "Logan" };
+
+int[] studentScores = new int[10];
+
+Console.WriteLine("Student\t\tGrade\n");
+
+foreach (string name in studentNames) {
+
+    string currentStudent = name;
+
+    if (currentStudent == "Sophia")
+        studentScores = intArrSophiaAssignmentScores;
+    
+    else if (currentStudent == "Andrew")
+        studentScores = intArrAndrewAssignmentScores;
+    
+    else if (currentStudent == "Emma")
+        studentScores = intArrEmmaAssignmentScores;
+
+    else if (currentStudent == "Logan")
+        studentScores = intArrLoganAssignmentScores;
+
+    int sumAssignmentScores = 0;
+    decimal currentStudentGrade;
+
+    foreach (int score in studentScores)
+    {
+        sumAssignmentScores += score;
+    }
+
+    currentStudentGrade = (decimal)sumAssignmentScores / currentAssignments;
+
+    Console.WriteLine($"{currentStudent}:\t\t{currentStudentGrade}\t?");
+}
+
+
 int andrewSum = 0;
 int emmaSum = 0;
 int loganSum = 0;
 
-decimal sophiaScore;
 decimal andrewScore;
 decimal emmaScore;
 decimal loganScore;
 
-foreach (int intSophiaAssignmentScore in intArrSophiaAssignmentScores) {
-    sophiaSum += intSophiaAssignmentScore;
-}
-
 //sophiaSum = sophia1 + sophia2 + sophia3 + sophia4 + sophia5;
-andrewSum = andrew1 + andrew2 + andrew3 + andrew4 + andrew5;
-emmaSum = emma1 + emma2 + emma3 + emma4 + emma5;
-loganSum = logan1 + logan2 + logan3 + logan4 + logan5;
+//andrewSum = andrew1 + andrew2 + andrew3 + andrew4 + andrew5;
+//emmaSum = emma1 + emma2 + emma3 + emma4 + emma5;
+//loganSum = logan1 + logan2 + logan3 + logan4 + logan5;
 
-sophiaScore = (decimal)sophiaSum / currentAssignments;
-andrewScore = (decimal)andrewSum / currentAssignments;
-emmaScore = (decimal)emmaSum / currentAssignments;
-loganScore = (decimal)loganSum / currentAssignments;
+//andrewScore = (decimal)andrewSum / currentAssignments;
+//emmaScore = (decimal)emmaSum / currentAssignments;
+//loganScore = (decimal)loganSum / currentAssignments;
 
-Console.WriteLine("Student\t\tGrade\n");
-Console.WriteLine("Sophia:\t\t" + sophiaScore + "\tA-");
-Console.WriteLine("Andrew:\t\t" + andrewScore + "\tB+");
-Console.WriteLine("Emma:\t\t" + emmaScore + "\tB");
-Console.WriteLine("Logan:\t\t" + loganScore + "\tA-");
+//Console.WriteLine("Andrew:\t\t" + andrewScore + "\tB+");
+//Console.WriteLine("Emma:\t\t" + emmaScore + "\tB");
+//Console.WriteLine("Logan:\t\t" + loganScore + "\tA-");
 
 Console.WriteLine("Press the Enter key to continue");
 Console.ReadLine();
