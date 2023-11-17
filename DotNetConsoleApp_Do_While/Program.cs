@@ -53,7 +53,7 @@ Console.WriteLine($"validNumber: {validNumber}; readResult: {readResult}; numeri
 /*
 Code Project 1 - write code that validates integer input
 */
-
+/*
 string? strReadResult;
 bool bolValidEntry = false;
 int intValidInteger = 0;
@@ -84,4 +84,48 @@ do{
         }
     }
 }while(bolValidEntry == false);
+*/
+
+/*
+Code Project 2 - write code that validates string input
+*/
+
+string? strReadResult;
+
+bool bolValidEntry = false;
+
+string[] arrStrRoles = {"administrator","manager","user"};
+
+Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+
+do {
+    strReadResult = Console.ReadLine();
+
+    if (strReadResult != null)
+    {
+        strReadResult = strReadResult.Trim().ToLower();
+
+        bool bolFound = Array.Exists(arrStrRoles, delegate(string strRole)
+        {
+            return strRole.Equals(strReadResult, StringComparison.OrdinalIgnoreCase);
+        });
+
+        strReadResult = char.ToUpper(strReadResult[0]) + strReadResult.Substring(1);
+
+        if (bolFound)
+        {
+            strReadResult = "Your input value (" + strReadResult + ") has been accepted.";
+            //Console.WriteLine("Your input value (Administrator) has been accepted.");
+            bolValidEntry = true;
+        }
+        else
+        {
+            strReadResult = "The role name that you entered, \"" + strReadResult + "\" is not valid. Enter your role name (Administrator, Manager, or User)";
+            //Console.WriteLine($"The role name that you entered, \"{strReadResult}\" is not valid. Enter your role name (Administrator, Manager, or User)");
+        }
+
+        Console.WriteLine(strReadResult);
+    }
+
+} while(bolValidEntry == false);
 
