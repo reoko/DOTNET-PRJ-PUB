@@ -89,7 +89,7 @@ do{
 /*
 Code Project 2 - write code that validates string input
 */
-
+/*
 string? strReadResult;
 
 bool bolValidEntry = false;
@@ -128,3 +128,50 @@ do {
     }
 
 } while(bolValidEntry == false);
+*/
+
+/*
+Code Project 3 - Write code that processes the contents of a string array.
+*/
+
+string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
+
+int periodLocation = 0;
+
+foreach (string myString in myStrings)
+{
+    periodLocation = myString.IndexOf(".");
+    
+    if (periodLocation > 0)
+    {
+        int intStartPosition = 0;
+        int intEndPosition = 0;
+        string strCurrentString = myString;
+        string strDisplayString = "";
+        string strTrimString = "";
+        string strCleanString = "";
+
+        do
+        {
+            intEndPosition = strCurrentString.IndexOf(".");
+
+            strDisplayString = strCurrentString.Substring(intStartPosition,intEndPosition);
+            strTrimString = strCurrentString.Remove(intStartPosition,intEndPosition);
+            strCleanString = strTrimString.TrimStart('.',' ');
+            strCurrentString = strCleanString;
+            intEndPosition = strCurrentString.IndexOf(".");
+
+            Console.WriteLine($"{strDisplayString}");
+
+            if(intEndPosition < 0)
+            {
+                Console.WriteLine($"{strCurrentString}");
+            }
+        }
+        while(intEndPosition > 0);
+    }
+    else
+    {
+        Console.WriteLine($"{myString}");
+    }
+}
