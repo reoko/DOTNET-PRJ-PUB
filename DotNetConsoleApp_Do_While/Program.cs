@@ -52,8 +52,9 @@ Console.WriteLine($"validNumber: {validNumber}; readResult: {readResult}; numeri
 
 /*
 Code Project 1 - write code that validates integer input
+Answer Code
 */
-/*
+
 string? strReadResult;
 bool bolValidEntry = false;
 int intValidInteger = 0;
@@ -71,7 +72,7 @@ do{
             Console.WriteLine($"You entered {intValidInteger}. Please enter a number between 5 and 10.");
             bolValidEntry = false;
         }
-        else if (intValidInteger >= 5 && intValidInteger <= 10 && bolValidEntry == true) 
+        else if (intValidInteger > 5 && intValidInteger < 10 && bolValidEntry == true) 
         { 
             Console.WriteLine($"Your input value ({intValidInteger}) has been accepted."); 
             bolValidEntry = true; 
@@ -84,7 +85,50 @@ do{
         }
     }
 }while(bolValidEntry == false);
+
+
+/*
+Code Project 1 - write code that validates integer input
+Sugested Code
 */
+/*
+string? readResult;
+string valueEntered = "";
+int numValue = 0;
+bool validNumber = false;
+
+Console.WriteLine("Enter an integer value between 5 and 10");
+
+do
+{
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        valueEntered = readResult;
+    }
+
+    validNumber = int.TryParse(valueEntered, out numValue);
+
+    if (validNumber == true)
+    {
+        if (numValue <= 5 || numValue >= 10)
+        {
+            validNumber = false;
+            Console.WriteLine($"You entered {numValue}. Please enter a number between 5 and 10.");
+        }
+    }
+    else 
+    {
+        Console.WriteLine("Sorry, you entered an invalid number, please try again");
+    }
+} while (validNumber == false);
+
+Console.WriteLine($"Your input value ({numValue}) has been accepted.");
+
+readResult = Console.ReadLine();
+
+*/
+
 
 /*
 Code Project 2 - write code that validates string input
@@ -133,7 +177,7 @@ do {
 /*
 Code Project 3 - Write code that processes the contents of a string array.
 */
-
+/*
 string[] myStrings = new string[2] { "I like pizza. I like roast chicken. I like salad", "I like all three of the menu choices" };
 
 int periodLocation = 0;
@@ -175,3 +219,4 @@ foreach (string myString in myStrings)
         Console.WriteLine($"{myString}");
     }
 }
+*/
