@@ -54,7 +54,7 @@ Console.WriteLine($"validNumber: {validNumber}; readResult: {readResult}; numeri
 Code Project 1 - write code that validates integer input
 Answer Code
 */
-
+/*
 string? strReadResult;
 bool bolValidEntry = false;
 int intValidInteger = 0;
@@ -85,7 +85,7 @@ do{
         }
     }
 }while(bolValidEntry == false);
-
+*/
 
 /*
 Code Project 1 - write code that validates integer input
@@ -132,17 +132,16 @@ readResult = Console.ReadLine();
 
 /*
 Code Project 2 - write code that validates string input
+Answer Code
 */
 /*
 string? strReadResult;
-
 bool bolValidEntry = false;
 
 string[] arrStrRoles = {"administrator","manager","user"};
 
-Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
-
 do {
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
     strReadResult = Console.ReadLine();
 
     if (strReadResult != null)
@@ -159,19 +158,49 @@ do {
         if (bolFound)
         {
             strReadResult = "Your input value (" + strReadResult + ") has been accepted.";
-            //Console.WriteLine("Your input value (Administrator) has been accepted.");
             bolValidEntry = true;
         }
         else
         {
-            strReadResult = "The role name that you entered, \"" + strReadResult + "\" is not valid. Enter your role name (Administrator, Manager, or User)";
-            //Console.WriteLine($"The role name that you entered, \"{strReadResult}\" is not valid. Enter your role name (Administrator, Manager, or User)");
+            strReadResult = "The role name that you entered, \"" + strReadResult + "\" is not valid.";
         }
 
         Console.WriteLine(strReadResult);
     }
-
 } while(bolValidEntry == false);
+*/
+
+/*
+Code Project 2 - write code that validates string input
+Proposed Posible Code Solution
+*/
+/*
+string? readResult;
+string roleName = "";
+bool validEntry = false;
+
+do
+{                
+    Console.WriteLine("Enter your role name (Administrator, Manager, or User)");
+    readResult = Console.ReadLine();
+    if (readResult != null) 
+    {
+        roleName = readResult.Trim();
+    }
+
+    if (roleName.ToLower() == "administrator" || roleName.ToLower() == "manager" || roleName.ToLower() == "user") 
+    {
+        validEntry = true;
+    }
+    else
+    {
+        Console.Write($"The role name that you entered, \"{roleName}\" is not valid. ");
+    }
+
+} while (validEntry == false);
+
+Console.WriteLine($"Your input value ({roleName}) has been accepted.");
+readResult = Console.ReadLine();
 */
 
 /*
